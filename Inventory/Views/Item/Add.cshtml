@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Add Item";
+}
+
+@model Inventory.Models.AddItemViewModel
+
+
+<div class="mb-5">
+    <h1>Add Item</h1>
+</div>
+
+
+<form action="" method="post" class="form-add">
+
+
+    <div>
+        <label class="form-label">Item Name</label>
+        <input type="text" class="form-control" asp-for="Name" required />
+    </div>
+    <div>
+        <label class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="Description" />
+    </div>
+    <div>
+        <label class="form-label">Quantity</label>
+        <input type="number" class="form-control" asp-for="Quantity" />
+    </div>
+    <div>
+        <label class="form-label">Date</label>
+        <input type="date" class="form-control" asp-for="Date" />
+    </div>
+    <div>
+        <label class="form-label">Price</label>
+        <input type="number" class="form-control" asp-for="Price" />
+    </div>
+    <div class="mb-5"></div>
+    <button type="submit" name="submit" value="" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i></button>
+</form>

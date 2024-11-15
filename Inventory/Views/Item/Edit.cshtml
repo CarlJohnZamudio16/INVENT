@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Edit Item";
+}
+
+@model Inventory.Models.Entities.Items
+
+@if (Model is null)
+{
+    <p>No Subject of that Id found</p>
+}
+else
+
+{
+
+
+    <div class="mb-5">
+        <h1>Edit Subject</h1>
+    </div>
+
+
+    <form asp-controller="Item" method="post" class="form-add">
+
+
+        <div>
+            <label class="form-label">Item Name</label>
+            <input type="text" class="form-control" asp-for="Name" required />
+        </div>
+        <div>
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control" asp-for="Description" />
+        </div>
+        <div>
+            <label class="form-label">Quantity</label>
+            <input type="number" class="form-control" asp-for="Quantity" />
+        </div>
+        <div>
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control" asp-for="Date" />
+        </div>
+        <div>
+            <label class="form-label">Price</label>
+            <input type="number" step="0.01" class="form-control" asp-for="Price" />
+        </div>
+        <button type="submit" name="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i></button>
+    </form>
+}

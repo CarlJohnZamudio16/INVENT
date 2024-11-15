@@ -1,0 +1,23 @@
+﻿@model Inventory.Models.Entities.Items
+
+<div class="modal-header">
+    <h5 class="modal-title">Confirm Purchase</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <p>Enter the quantity you want to purchase:</p>
+    <p><strong>Item Name:</strong> @Model.Name</p>
+    <p><strong>Available Quantity:</strong> @Model.Quantity</p>
+
+    <div class="mb-3">
+        <label for="quantityToBuy" class="form-label">Quantity to Buy</label>
+        <input type="number" class="form-control" id="quantityToBuy" name="QuantityToBuy" min="1" max="@Model.Quantity" required />
+    </div>
+</div>
+<div class="modal-footer">
+    <form asp-controller="Item" asp-action="Buy" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-success">Confirm Purchase</button>
+    </form>
+</div>

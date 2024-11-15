@@ -1,0 +1,424 @@
+
+
+
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .form-group {
+        width: 20%;
+    }
+
+    .form-sort .btn1 {
+        width: 100%; /* Make buttons full-width on small screens */
+        margin-bottom: 10px;
+    }
+    .navbar .nav-link {
+        display: none; /* Hide links on small screens */
+    }
+
+    .navbar .hamburger {
+        display: block; /* Show hamburger menu */
+    }
+    .table-container, .form-add {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+    .btn-home-add.alive {
+        animation: pulse 2s infinite; /* Slower pulse on smaller screens */
+    }
+}
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: 'kanit', sans-serif;
+    color: #9ae8b7;
+    background: linear-gradient(to right, #153548, #9ae8b7, #153548);
+    background-size: 400% 400%; /* Ensures the gradient spans more than the screen size */
+    animation: gradientAnimation 15s ease infinite; /* Animate the gradient */
+    margin-bottom: 60px;
+}
+
+/* Keyframes for animating the gradient's position */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Start from left */
+    }
+
+    50% {
+        background-position: 100% 50%; /* Move to the right */
+    }
+
+    100% {
+        background-position: 0% 50%; /* Back to left */
+    }
+}
+
+
+
+.navbar {
+    font-size: 20px;
+    font-family: 'kanit', sans-serif;
+    background-color: #153548;
+    border-bottom: 2px solid #9ae8b7;
+    color: #9ae8b7;
+}
+footer {
+    color: #9ae8b7;
+    border-top: 2px solid #9ae8b7;
+    background-color: #153548;
+}
+.nav-link {
+    color: #9ae8b7; /* Default color */
+    transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+    .nav-link:hover {
+        color: lightgreen; /* New color when hovered */
+    }
+
+.image-container {
+    padding-top: 5%;
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+/* Overall form container styling */
+.form-add {
+    color: #9ae8b7;
+    font-family: 'kanit', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #153548;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form labels styling */
+.form-label {
+    color: #9ae8b7;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input fields styling */
+.form-control {
+    color: #9ae8b7;
+    background-color: #153548;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+    /* Input fields focus effect */
+    .form-control:focus {
+        background-color: #153548;
+        color: #9ae8b7;
+        border-color: #9ae8b7;
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+/* Button styling */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #153548;
+    color: white;
+    font-size: 1.1rem;
+    border-color: #9ae8b7;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    /* Button hover effect */
+    button[type="submit"]:hover {
+        background-color: #9ae8b7;
+    }
+
+/* Spacing between form elements */
+.mb-5 {
+    margin-bottom: 30px;
+}
+.table{
+
+}
+/* Button Styling for Edit, Buy, Delete */
+.btn {
+    background-color: transparent;
+    border: 2px solid transparent; /* Make border invisible by default */
+    color: #007bff; /* Default text color (Edit button) */
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+    .btn:hover {
+        opacity: 0.8; /* Slight opacity change on hover */
+    }
+
+/* Edit Button (Primary Border) */
+.btn-edit {
+    border-color: #9ae8b7; /* Blue border for Edit */
+    color: #9ae8b7; /* Blue text */
+}
+
+    .btn-edit:hover {
+        background-color: #9ae8b7;
+        color: white;
+    }
+
+/* Buy Button (Success Border) */
+.btn-buy {
+    border-color: #9ae8b7; /* Green border for Buy */
+    color: #9ae8b7; /* Green text */
+}
+
+    .btn-buy:hover {
+        background-color: #9ae8b7;
+        color: white;
+    }
+
+/* Delete Button (Danger Border) */
+.btn-delete {
+    border-color: #9ae8b7; /* Red border for Delete */
+    color: #9ae8b7; /* Red text */
+}
+
+    .btn-delete:hover {
+        background-color: #9ae8b7;
+        color: white;
+    }
+.form-delete{
+    background-color: transparent;
+}
+    .table-container {
+        overflow-x: auto;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #153548;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+/* Table Styling */
+.table {
+    color: #9ae8b7;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th {
+        font-size: 18px;
+        font-family: 'kanit', sans-serif;
+        background-color: #153548;
+        color: #9ae8b7;
+        font-weight: 400;
+    }
+
+    .table tbody tr:hover {
+        background-color: #4e9a8d;
+        color: #9ae8b7;
+    }
+
+.stock-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px; 
+    background-color: transparent;
+}
+
+
+    .stock-header h1 {
+        color: #9ae8b7;
+        font-family: 'kanit', sans-serif;
+        font-size: 3.4rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+
+.btn-add {
+    margin-bottom: 40px;
+    border: 3px solid #9ae8b7;
+    font-size: 2rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #9ae8b7;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+    .btn-add:hover {
+        border: 2px solid #9ae8b7;
+        background-color: #9ae8b7;
+        transform: scale(1.05);
+    }
+
+
+.mb-5 {
+    margin-bottom: 30px; 
+}
+.form-group {
+    margin-bottom: 30px;
+    margin-left: 50px;
+    width: 20%;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Add space between the input and button */
+}
+
+.filter-button {
+    width: 10px;
+    margin-top: 6px;
+    height: 50px;
+    background-color: #153548;
+    color: #9ae8b7;
+    border: 2px solid #153548;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .filter-button:hover {
+        border: 2px solid #153548;
+        background-color: #9ae8b7;
+        color: #153548;
+        transform: scale(1.05);
+    }
+.label{
+    margin-left: 50px;
+}
+.form-control1 {
+    height: 50px;
+    background-color: #153548;
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 2px solid #9ae8b7;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+    .form-control1::placeholder {
+        color: #9ae8b7;
+    }
+    /* Input fields focus effect */
+    .form-control1:focus {
+        background-color: #153548;
+        color: #9ae8b7;
+        border-color: #9ae8b7;
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+strong{
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.privacy-container {
+    background-color: #153548;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    padding: 40px;
+    border-radius: 20px;
+    color: #9ae8b7;
+}
+.table td, .table th {
+    border-bottom: 1px solid #9ae8b7; /* Customize the color as needed */
+}
+/* Initial button style */
+.btn-home-add {
+    background-color: #153548;
+    color: #9ae8b7;
+    position: absolute;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: transform 0.2s ease, left 0.2s ease, top 0.2s ease; /* Smooth transition */
+}
+
+/* Add a "pulse" effect to make the button feel more alive */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-home-add.alive {
+    animation: pulse 1s infinite;
+}
+.form-sort {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+}
+
+    .form-sort .form-group1 {
+        margin-right: 50px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .form-sort .btn1 {
+
+        margin-bottom: 20px;
+        padding: 7px 12px; /* Reduce padding for smaller buttons */
+        font-size: 13px; /* Smaller font size */
+        width: 90px; /* Ensure buttons don't shrink too much */
+        height: 35px; /* Set a specific height for buttons */
+    }
+.privacy-label {
+    text-decoration: none;
+    color: #04ff00;
+}
+
+
+
+
+

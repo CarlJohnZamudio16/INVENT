@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Item List";
+}
+
+@model List<Inventory.Models.Entities.Items>
+
+<div class="mb-5 stock-header">
+    <h1>Stocks</h1>
+    <a class="btn btn-primary btn-add" asp-action="Add" asp-controller="Item">
+        <i class="fa-solid fa-plus"></i>
+    </a>
+</div>
+
+<!-- Search Form -->
+<form asp-action="Search" method="get" class="form-report">
+    <div class="form-group">
+        <input type="text" name="query" class="form-control1" placeholder="Search items..." />
+        <button type="submit" class="filter-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+</form>
+
+<!-- Dropdown for Sorting -->
+    <form asp-action="List" method="get" class="form-sort">
+        <div class="form-group1 d-flex">
+            <button type="submit" name="sortOrder" value="name_asc" class="btn1">A to Z</button>
+            <button type="submit" name="sortOrder" value="name_desc" class="btn1">Z to A</button>
+        <button type="submit" name="sortOrder" value="quantity_asc" class="btn1">Stock <i class="fa-solid fa-arrow-down"></i></button>
+        <button type="submit" name="sortOrder" value="quantity_desc" class="btn1">Stock <i class="fa-solid fa-arrow-up"></i></button>
+        </div>
+    </form>
+
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Date Stored</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
+                    <td>@item.Date?.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <a class="btn btn-edit" asp-controller="Item" asp-action="Edit" asp-route-id="@item.Id">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <form asp-controller="Item" asp-action="Delete" method="post" class="d-inline form-delete">
+                            <input type="hidden" name="Id" value="@item.Id" />
+                            <button type="button" class="btn btn-delete" onclick="return confirm('Are you sure to delete this item?')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

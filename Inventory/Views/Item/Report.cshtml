@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Item List";
+}
+@model List<Inventory.Models.Entities.Items>
+
+<div class="mb-5 stock-header">
+    <h1>Sales Report</h1>
+    <a class="btn btn-primary btn-add" asp-action="Add" asp-controller="Item"><i class="fa-solid fa-plus"></i></a>
+</div>
+
+<!-- Month Filter Form -->
+<form method="get" asp-action="Report" class="form-report">
+    <label class="label" for="selectedDate">Select Month:</label>
+    <div class="form-group">
+        <input type="month" id="selectedDate" name="selectedDate" class="form-control1"
+               value="@ViewData["SelectedDate"]" />
+        <button type="submit" class="filter-button"><i class="fa-solid fa-filter"></i></button>
+    </div>
+</form>
+
+
+<div class="table-container mt-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var items in Model)
+            {
+                <tr>
+                    <td>@items.Name</td>
+                    <td>@items.Description</td>
+                    <td>@items.Quantity</td>
+                    <td>@items.Price</td>
+                    <td>@((items.Quantity ?? 0) * (items.Price ?? 0))</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Display Total Quantity and Total Price for the selected month -->
+    <div class="mt-3">
+        @if (ViewData["SelectedDate"] != null)
+        {
+            <strong>Total Quantity for Selected Month: </strong> @ViewData["TotalQuantity"]
+
+            <br>
+            <strong>Total Price for Selected Month: </strong> @ViewData["TotalPrice"]
+        }
+        else
+        {
+            <strong>Total Quantity of All Items: </strong> @ViewData["TotalQuantity"]
+
+            <br>
+            <strong>Total Price of All Items: </strong> @ViewData["TotalPrice"]
+        }
+    </div>
+</div>
